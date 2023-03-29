@@ -1,0 +1,29 @@
+#include <stdio.h>
+
+int main() {
+    int arr[10] = {1, 2, 3, 2, 1, 2, 3, 1, 2, 3};
+    int freq[10];
+    int i, j, count;
+
+    for (i = 0; i < 10; i++) {
+        count = 1;
+        for (j = i+1; j < 10; j++) {
+            if (arr[i] == arr[j]) {
+                count++;
+                freq[j] = 0;
+            }
+        }
+        if (freq[i] != 0) {
+            freq[i] = count;
+        }
+    }
+
+    printf("Frequency of each element in the array:\n");
+    for (i = 0; i < 10; i++) {
+        if (freq[i] != 0) {
+            printf("%d occurs %d times\n", arr[i], freq[i]);
+        }
+    }
+
+    return 0;
+}
